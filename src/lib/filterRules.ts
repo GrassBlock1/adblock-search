@@ -43,8 +43,8 @@ export function generateFilterRules(domains: string[], engines: SearchEngine[]):
 
     if (engines.includes('duckduckgo')) {
       rules.push(`! DuckDuckGo - ${cleanDomain}`)
-			rules.push(`duckduckgo.com##li:has(a[href*="minecraft.fandom.com"])`)
-			rules.push(`duckduckgo.com##a[href*="minecraft.fandom.com"]:upward(4)`)
+			rules.push(`duckduckgo.com##li:has(a[href*="${cleanDomain}"])`)
+			rules.push(`duckduckgo.com##a[href*="${cleanDomain}"]:upward(4)`)
       rules.push(`duckduckgo.com##article:has(a[href*="${cleanDomain}"])`)
       rules.push(`duckduckgo.com##li[data-layout="organic"]:has(a[href*="${cleanDomain}"])`)
       rules.push('')
