@@ -59,9 +59,10 @@
 		navigator.clipboard.writeText(filterContent)
 	}
 
-
-
 	function copyShareUrl() {
+		if (domains.length !== 0 && selectedEngines.length !== 0) {
+			shareUrl = window.location.origin + '/filters.txt' + '?d=' + domains.join(',') + '&s=' + selectedEngines.join(',')
+		}
 		if (!shareUrl) return
 		navigator.clipboard.writeText(shareUrl)
 	}
@@ -160,10 +161,13 @@
 							Generated Rules
 						</h2>
 						<div class="flex gap-2 flex-wrap justify-end">
-							<button on:click={copyToClipboard} class="btn btn-secondary">
+							<button on:click={copyToClipboard} class="btn btn-primary">
 								Copy
 							</button>
-							<button on:click={downloadRules} class="btn btn-primary">
+							<button on:click={copyShareUrl} class="btn btn-secondary">
+								Get URL
+							</button>
+							<button on:click={downloadRules} class="btn btn-secondary">
 								Download
 							</button>
 						</div>
@@ -198,10 +202,6 @@
 							</p>
 						</div>
 					{/if}
-
-					<p class="text-sm text-gray-600 dark:text-gray-400 mt-4">
-						Import this file into uBlock Origin, AdGuard, or any compatible ad blocker.
-					</p>
 				</section>
 			{/if}
 			<footer class="text-align-center">
