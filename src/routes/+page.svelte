@@ -204,6 +204,10 @@
 					</p>
 				</section>
 			{/if}
+			<footer class="text-align-center">
+				<span class="i-mdi-github-face"></span>
+				<a href="https://github.com/GrassBlock1/adblock-search" class="text-sm text-gray-600 dark:text-gray-400 mt-4">source code</a>
+			</footer>
 		</div>
 	</div>
 </div>
