@@ -15,7 +15,7 @@ export function generateFilterRules(domains: string[], engines: SearchEngine[]):
 
   rules.push(`! Title: Search Result Blacklist for ${domains.join(',')}`)
   rules.push(`! Description: Hide search results from specified domains`)
-  rules.push(`! Generated: ${timestamp}`)
+  rules.push(`! Generated: ${timestamp} using https://github.com/GrassBlock1/adblock-search`);
   rules.push(`! Domains: ${domains.length}`)
   rules.push(`! Search Engines: ${engines.join(', ')}`)
   rules.push(`!`)
