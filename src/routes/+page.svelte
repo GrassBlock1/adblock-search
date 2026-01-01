@@ -40,6 +40,9 @@
 	function generateRules() {
 		if (domains.length === 0 || selectedEngines.length === 0) return
 		filterContent = generateFilterRules(domains, selectedEngines)
+		if (domains.length !== 0 && selectedEngines.length !== 0) {
+			shareUrl = window.location.origin + '/filters.txt' + '?d=' + domains.join(',') + '&s=' + selectedEngines.join(',')
+		}
 	}
 
 	function downloadRules() {
@@ -60,9 +63,7 @@
 	}
 
 	function copyShareUrl() {
-		if (domains.length !== 0 && selectedEngines.length !== 0) {
-			shareUrl = window.location.origin + '/filters.txt' + '?d=' + domains.join(',') + '&s=' + selectedEngines.join(',')
-		}
+
 		if (!shareUrl) return
 		navigator.clipboard.writeText(shareUrl)
 	}
@@ -163,9 +164,6 @@
 						<div class="flex gap-2 flex-wrap justify-end">
 							<button on:click={copyToClipboard} class="btn btn-primary">
 								Copy
-							</button>
-							<button on:click={copyShareUrl} class="btn btn-secondary">
-								Get URL
 							</button>
 							<button on:click={downloadRules} class="btn btn-secondary">
 								Download
